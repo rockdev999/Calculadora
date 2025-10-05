@@ -1,0 +1,119 @@
+// Theme variables (space/earth palette)
+$primary: #9cd43f; // lime accent
+$secondary: #5ce1e6; // cyan accent
+$dark: #0b1320; // deep space
+$darker: #070c14; // even deeper
+$light: #e6f2ff;
+$body-bg: $darker;
+$body-color: #d8e3f0;
+
+// Bootstrap partials
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/navbar";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/utilities";
+
+// Bootstrap Icons
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+// Global typography
+:root {
+  --rk-font-heading: 'Rajdhani', system-ui, sans-serif;
+  --rk-font-body: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--rk-font-body);
+  background-color: $body-bg;
+  color: $body-color;
+}
+
+h1, h2, h3, .display-1, .display-2, .display-3 {
+  font-family: var(--rk-font-heading);
+  letter-spacing: 0.02em;
+}
+
+.btn-lime {
+  @extend .btn;
+  background-color: $primary;
+  color: #0a0f18;
+  border: none;
+  padding-inline: 1.25rem;
+  &:hover { filter: brightness(1.05); }
+}
+
+// Utility helpers for starry sections
+.section-dark {
+  background: radial-gradient(1200px 500px at 50% -10%, #152032 0%, rgba(11,19,32,0) 60%),
+              $darker;
+}
+
+.section-darker { background: $dark; }
+
+.muted { color: lighten($body-color, 15%); }
+
+.divider {
+  width: 64px;
+  height: 4px;
+  background: $primary;
+  margin: 0.75rem auto 2rem;
+  border-radius: 2px;
+}
+
+.icon-circle {
+  width: 88px;
+  height: 88px;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(156, 212, 63, 0.15);
+  color: $primary;
+  font-size: 36px;
+  box-shadow: 0 0 0 1px rgba(156,212,63,0.2) inset;
+}
+
+.glass-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+// Hero styles
+.hero {
+  background-image: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=2000&q=60');
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+  min-height: 80vh;
+  display: grid;
+  place-items: center;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7,12,20,0.1) 0%, rgba(7,12,20,0.85) 70%);
+}
+.hero .hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: left;
+}
+
+// Contact form
+.contact-form .form-control, .contact-form .form-control:focus {
+  background-color: rgba(255,255,255,0.04);
+  color: $body-color;
+  border-color: rgba(255,255,255,0.1);
+}
